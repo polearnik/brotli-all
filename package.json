@@ -1,5 +1,5 @@
 {
-    "name": "gzip-all",
+    "name": "brotli-all",
     "version": "1.0.0",
     "description": "Create .br files for all files in a folder",
     "main": "index.js",
