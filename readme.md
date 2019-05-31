@@ -1,19 +1,19 @@
-# gzip-all
+# brotli-all
 
-Generate `.gz` gzipped versions of files recursively for every file in a folder.
+Generate `.br` brotli versions of files recursively for every file in a folder.
 
 ## API
 
 A single function that takes two arguments: a [glob](https://www.npmjs.com/package/glob) string, and an optional object to pass in as options to glob.
 
-Returns a promise that resolves to an array of all `.gz` files created.
+Returns a promise that resolves to an array of all `.br` files created.
 
 ## Programmatic usage
 
 ```js
-const gzipAll = require('gzip-all')
+const brotliAll = require('brotli-all')
 
-gzipAll('**/content/*.md').then(newFiles => {
+brotliAll('**/content/*.md').then(newFiles => {
 	console.log('yay, created', newFiles.length, 'compressed files!')
 })
 ```
@@ -21,7 +21,7 @@ gzipAll('**/content/*.md').then(newFiles => {
 ## CLI usage
 
 ```sh
-gzip-all "**/content/*.md"
+brotli-all "**/content/*.md"
 ```
 
 ## License

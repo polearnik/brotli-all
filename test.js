@@ -1,23 +1,23 @@
 require('hard-rejection')()
 const assert = require('power-assert')
 const rimraf = require('rimraf')
-const gzipAll = require('./')
+const brotliAll = require('./')
 const glob = require('glob')
 
 function cleanUp() {
-	rimraf(`./fixtures/*.gz`, err => {
-		assert.ifError(err)
-	})
+    rimraf(`./fixtures/*.br`, err => {
+        assert.ifError(err)
+    })
 }
 
-gzipAll(`./fixtures/*.@(md|txt)`).then(gzippedFiles => {
-	assert.equal(gzippedFiles.length, 2)
-	glob(`./fixtures/*.gz`, (err, gzippedFiles) => {
-		assert.ifError(err)
-		assert.equal(gzippedFiles.length, 2)
-		cleanUp()
-	})
+brotliAll(`./fixtures/*.@(md|txt)`).then(brotliFiles => {
+    assert.equal(brotliFiles.length, 5)
+    glob(`./fixtures/*.br`, (err, brotliFiles) => {
+        assert.ifError(err)
+        assert.equal(brotliFiles.length, 5)
+        cleanUp()
+    })
 }).catch(err => {
-	assert.ifError(err)
-	cleanUp()
+    assert.ifError(err)
+    cleanUp()
 })
